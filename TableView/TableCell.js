@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, TouchableHighlight, Text, Image} from 'react-native';
 import PropTypes from 'prop-types';
 
 class TableCell extends React.Component {
@@ -26,13 +26,19 @@ class TableCell extends React.Component {
 
     renderIcon = () => {
         if (this.props.icon) {
+            let icon;
+            if (typeof this.props.icon === 'function') {
+                icon = this.props.icon();
+            } else {
+                icon = this.props.icon;
+            }
             return (
                 <View style={{
                     marginRight: 10,
                     alignContent: 'center',
                     justifyContent: 'center'
                 }}>
-                    {this.props.icon}
+                    {icon}
                 </View>
             );
         }
@@ -41,6 +47,9 @@ class TableCell extends React.Component {
 
     renderTitle = () => {
         if (this.props.titleComponent) {
+            if (typeof this.props.titleComponent === 'function') {
+                return this.props.titleComponent();
+            }
             return this.props.titleComponent;
         }
 
@@ -64,6 +73,9 @@ class TableCell extends React.Component {
 
     renderDetail = () => {
         if (this.props.detailComponent) {
+            if (typeof this.props.detailComponent === 'function'){
+                return this.props.detailComponent();
+            }
             return this.props.detailComponent;
         }
         if (this.props.detail) {
@@ -90,6 +102,9 @@ class TableCell extends React.Component {
     renderAccessoryView = () => {
         if (this.props.isLink) {
             if (this.props.accessoryViewComponent) {
+                if (typeof this.props.accessoryViewComponent === 'function'){
+                    return this.props.accessoryViewComponent();
+                }
                 return this.props.accessoryViewComponent;
             }
             return (
