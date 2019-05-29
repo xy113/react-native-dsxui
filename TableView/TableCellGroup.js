@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 
-export default class TableCellGroup extends React.Component {
+class TableCellGroup extends React.Component {
 
     static propTypes = {
         style: PropTypes.object
@@ -18,3 +18,5 @@ export default class TableCellGroup extends React.Component {
         );
     }
 }
+
+module.exports = TableCellGroup;
