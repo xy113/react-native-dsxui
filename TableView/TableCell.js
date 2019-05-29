@@ -149,6 +149,7 @@ class TableCell extends React.Component {
                     {this.renderTitle()}
                     {this.renderDetail()}
                     {this.renderAccessoryView()}
+                    {this.props.children}
                 </View>
             </TouchableHighlight>
         );
