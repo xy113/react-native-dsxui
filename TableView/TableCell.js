@@ -53,22 +53,26 @@ class TableCell extends React.Component {
             return this.props.titleComponent;
         }
 
-        return (
-            <View
-                style={{
-                    flex: 1,
-                    alignContent: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <Text style={{
-                    fontSize: 16,
-                    color: '#000',
-                    textAlignVertical: 'center',
-                    ...this.props.titleStyle
-                }}>{this.props.title}</Text>
-            </View>
-        );
+        if (this.props.title){
+            return (
+                <View
+                    style={{
+                        flex: 1,
+                        alignContent: 'center',
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Text style={{
+                        fontSize: 16,
+                        color: '#000',
+                        textAlignVertical: 'center',
+                        ...this.props.titleStyle
+                    }}>{this.props.title}</Text>
+                </View>
+            );
+        }
+
+        return null;
     };
 
     renderDetail = () => {
